@@ -122,7 +122,7 @@ execute({WriteMode, ReadMode, Connection, Database, User, Password}, Fun) ->
 			 true ->
 			     Fun();
 			 _ ->
-			     lager:error("Mongo DB Login Error check username and password ~p:~p", [User,Password]),
+			     lager:error("Mongo DB Login Error check username and password"),
 			     {error,bad_login}
 		     end
 	     end).

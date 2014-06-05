@@ -128,7 +128,6 @@ delete(Conn, Id) when is_list(Id) ->
 
 save_record(Conn, Record) when is_tuple(Record) ->
     RecordId = Record:id(),
-    lager:notice("Saving Record ~p~n", [Record]),
     case RecordId of
         id ->
             Record1		= maybe_populate_id_value(Record),
