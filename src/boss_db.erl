@@ -74,7 +74,7 @@
 start(Options) ->
     AdapterName = proplists:get_value(adapter, Options, mock),
     Adapter     = list_to_atom(lists:concat(["boss_db_adapter_", AdapterName])),
-    _ = lager:info("Start Database Adapter ~p options ~p", [Adapter, Options]),
+    _ = lager:info("Start Database Adapter ~p", [Adapter]),
     Adapter:start(Options),
     lists:foldr(fun(ShardOptions, Acc) ->
                 case proplists:get_value(db_shard_models, ShardOptions, []) of
