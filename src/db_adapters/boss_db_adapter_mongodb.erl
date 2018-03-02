@@ -523,7 +523,7 @@ pack_id(BossId) ->
         {hex2dec(MongoId)}
     catch
         Error:Reason ->
-            error_logger:warning_msg("Error parsing Boss record id: ~p:~p~n",
+            _ = lager:error("Error parsing Boss record id: ~p:~p",
                 [Error, Reason]),
             []
     end.
